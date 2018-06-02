@@ -1,0 +1,24 @@
+{
+  "name": "weight-tracker-weekend-app",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "US\\nkonada <nkonada@deloitte.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ChaituKNag/weight-tracker-weekend-app",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chart.js": "^2.7.2",
+    "angular": "^1.7.0",
+    "bootstrap": "^4.1.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3"
+  }
+}
