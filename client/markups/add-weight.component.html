@@ -2,7 +2,7 @@
 <form ng-submit="addWeightCtrl.submitEntry()">
     <div class="form-group row">
         <label for="person" class="col-sm-3 col-form-label">Name</label>
-        <div class="col-sm-6">
+        <div class="col-sm-6" ng-if="!addWeightCtrl.formFields.isNewPerson">
             <select class="custom-select" id="person" ng-model="addWeightCtrl.formFields.person" required>
                 <option value="" selected>Select person</option>
                 <option value="nagachaitanyakonada">Naga Chaitanya Konada</option>
@@ -10,8 +10,12 @@
                 <option value="tamoghnakonada">Tamoghna Konada</option>
             </select>
         </div>
+        <div class="col-sm-6" ng-if="addWeightCtrl.formFields.isNewPerson">
+            <input type="text" class="form-control" placeholder="Give a name" ng-model="addWeightCtrl.formFields.newperson">
+        </div>
         <div class="col-sm-3">
-            <button type="button" class="btn btn-outline-primary text-uppercase form-control">Add Person</button>
+            <button type="button" ng-if="!addWeightCtrl.formFields.isNewPerson" class="btn btn-outline-primary text-uppercase form-control" ng-click="addWeightCtrl.toggleNewPerson()">Add Person</button>
+            <button type="button" ng-if="addWeightCtrl.formFields.isNewPerson" class="btn btn-outline-primary text-uppercase form-control" ng-click="addWeightCtrl.toggleNewPerson()">Select Existing Person</button>
         </div>
     </div>
     <div class="form-group row">
@@ -30,4 +34,4 @@
         </div>
     </div>
     <button type="submit" class="btn btn-outline-success text-uppercase form-control btn-lg">Add Entry</button>
-</form>
+    <a href="#!/list" class="btn btn-link text-danger form-control text-uppercase">Cancel</a>

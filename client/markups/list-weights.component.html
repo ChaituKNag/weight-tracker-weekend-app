@@ -1,5 +1,13 @@
-<h3 class="text-center text-uppercase">List weights component html</h3>
+<h3 class="text-center text-uppercase">List of weight entries</h3>
 
+<div class="col-sm-6 offset-sm-3">
+    <select class="custom-select mb-2" id="person" ng-model="listWeightsCtrl.filterValue" required>
+        <option value="" selected>Select person</option>
+        <option value="nagachaitanyakonada">Naga Chaitanya Konada</option>
+        <option value="sowjanyakonada">Sowjanya Konada</option>
+        <option value="tamoghnakonada">Tamoghna Konada</option>
+    </select>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -10,23 +18,11 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Naga Chaitanya Konada</td>
-            <td>12th May 2008</td>
-            <td>85.5 KGs</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Sowjanya Konada</td>
-            <td>1st September 2010</td>
-            <td>50.5 KGs</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Tamoghna Konada</td>
-            <td>3rd November 2016</td>
-            <td>13 KGs</td>
+        <tr ng-repeat="record in listWeightsCtrl.dataSet | filter: listWeightsCtrl.filterValue">
+            <th scope="row">{{$index + 1}}</th>
+            <td>{{record.name}}</td>
+            <td>{{record.date}}</td>
+            <td>{{record.weight}} KGs</td>
         </tr>
     </tbody>
 </table>
