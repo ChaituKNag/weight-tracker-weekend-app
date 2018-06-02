@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +9,48 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
 </head>
+
 <body>
     <div class="container" ng-cloak ng-app="weightTrackerApp" ng-controller="weightTrackerController as ctrl">
-        {{ctrl.hello}}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">{ Weight Tracker App }</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item" ng-class="{active: ctrl.route.current.activeTab === 'list'}">
+                        <a class="nav-link" href="#!/list">List
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" ng-class="{active: ctrl.route.current.activeTab === 'graphical'}">
+                        <a class="nav-link" href="#!/graphical">Graph
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+                <a ng-if="ctrl.route.current.activeTab !== 'add'" href="#!/add" class="btn btn-outline-success">Add new</a>
+            </div>
+        </nav>
+        <div class="container view">
+            <ng-view></ng-view>
+        </div>
     </div>
     <script src="libs/angular/angular.min.js"></script>
-
+    <script src="libs/angular-route/angular-route.min.js"></script>
     <script src="libs/jquery/dist/jquery.min.js"></script>
     <script src="libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="libs/chart.js/dist/Chart.min.js"></script>
+    <script src="libs/angular-chart.js/dist/angular-chart.min.js"></script>
+
+
     <script src="index.js"></script>
+    <script src="components.js"></script>
 
 </body>
+
 </html>

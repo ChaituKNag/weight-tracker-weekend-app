@@ -1,0 +1,33 @@
+<h3 class="text-center text-uppercase">Add new entry</h3>
+<form ng-submit="addWeightCtrl.submitEntry()">
+    <div class="form-group row">
+        <label for="person" class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-6">
+            <select class="custom-select" id="person" ng-model="addWeightCtrl.formFields.person" required>
+                <option value="" selected>Select person</option>
+                <option value="nagachaitanyakonada">Naga Chaitanya Konada</option>
+                <option value="sowjanyakonada">Sowjanya Konada</option>
+                <option value="tamoghnakonada">Tamoghna Konada</option>
+            </select>
+        </div>
+        <div class="col-sm-3">
+            <button type="button" class="btn btn-outline-primary text-uppercase form-control">Add Person</button>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="weightNumber" class="col-md-3 col-form-label">Enter weight:</label>
+        <div class="input-group col-md-9">
+            <input type="number" class="form-control" id="weightNumber" ng-model="addWeightCtrl.formFields.weightNumber" placeholder="Weight" step="0.1" min="1" max="150" required>
+            <div class="input-group-append">
+                <span class="input-group-text">KGs</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="date" class="col-sm-3 col-form-label">Select date</label>
+        <div class="col-sm-9">
+            <input type="date" class="form-control" id="date" ng-model="addWeightCtrl.formFields.date" placeholder="Enter date" required>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-outline-success text-uppercase form-control btn-lg">Add Entry</button>
+</form>
