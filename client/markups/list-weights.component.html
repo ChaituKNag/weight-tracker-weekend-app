@@ -3,9 +3,7 @@
 <div class="col-sm-6 offset-sm-3">
     <select class="custom-select mb-2" id="person" ng-model="listWeightsCtrl.filterValue" required>
         <option value="" selected>Select person</option>
-        <option value="nagachaitanyakonada">Naga Chaitanya Konada</option>
-        <option value="sowjanyakonada">Sowjanya Konada</option>
-        <option value="tamoghnakonada">Tamoghna Konada</option>
+        <option ng-repeat="(id, name) in listWeightsCtrl.users" value="{{id}}">{{name}}</option>
     </select>
 </div>
 <table class="table">
@@ -18,10 +16,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="record in listWeightsCtrl.dataSet | filter: listWeightsCtrl.filterValue">
+        <tr ng-repeat="record in listWeightsCtrl.dataSet | filter: listWeightsCtrl.filterValue" data-user-id="{{record.userId}}">
             <th scope="row">{{$index + 1}}</th>
             <td>{{record.name}}</td>
-            <td>{{record.date}}</td>
+            <td>{{record.date | date:'yyyy-MM-dd'}}</td>
             <td>{{record.weight}} KGs</td>
         </tr>
     </tbody>

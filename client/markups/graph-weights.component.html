@@ -1,12 +1,20 @@
 <h3 class="text-center text-uppercase">Weights graph</h3>
-<div>
+<div class="col-sm-6 offset-sm-3">
+    <select class="custom-select mb-2" id="person" ng-model="graphWeightsCtrl.filterValue" required ng-change="graphWeightsCtrl.userSelected()">
+        <option value="" selected>Select person</option>
+        <option ng-repeat="user in graphWeightsCtrl.users" value="{{user._id}}">{{user.name}}</option>
+    </select>
+</div>
+<div ng-if="graphWeightsCtrl.filterValue">
     <canvas 
+        height="100vh"
+        width="100%"
         class="chart chart-line" 
-        chart-data="graphWeightsCtrl.data"
-        chart-labels="graphWeightsCtrl.labels" 
-        chart-series="graphWeightsCtrl.series" 
-        chart-click="graphWeightsCtrl.onClick"
-        chart-options="graphWeightsCtrl.options"    
+        chart-data="graphWeightsCtrl.graph.data"
+        chart-labels="graphWeightsCtrl.graph.labels" 
+        chart-series="graphWeightsCtrl.graph.series" 
+        chart-click="graphWeightsCtrl.graph.onClick"
+        chart-options="graphWeightsCtrl.graph.options"    
     >
     </canvas>
 </div>
